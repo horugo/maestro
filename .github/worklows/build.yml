@@ -1,0 +1,29 @@
+name: Builod
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    container:
+      image: docker.io/cypress/browsers
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: mobile-dev-inc/action-maestro-cloud@v1.1.0
+        with:
+          api-key: 1b0a599c-7b85-4a21-9bd2-378c7f1a365e
+          app-ile: qafood.apk
+       
+   
